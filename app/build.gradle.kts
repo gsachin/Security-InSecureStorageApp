@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "com.security.insecurestoragapp"
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 30
         versionCode = 1
         versionName = "1.0"
 
@@ -45,4 +45,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("androidx.security:security-crypto:1.1.0-alpha03")
 }
