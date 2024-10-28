@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/etAccessToken"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Access Token"
+        android:inputType="text"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/btnStoreToken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Store Access Token"
+        android:layout_below="@id/etAccessToken"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/btnRetrieveToken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retrieve Access Token"
+        android:layout_below="@id/btnStoreToken"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/tvToken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Access Token will appear here"
+        android:layout_below="@id/btnRetrieveToken"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+</RelativeLayout>
