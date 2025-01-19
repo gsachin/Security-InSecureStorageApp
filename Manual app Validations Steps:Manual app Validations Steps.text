@@ -114,3 +114,33 @@ Steps:
 Log in to the app, perform actions, and close it without logging out.
 Use Corellium’s file system access to inspect cached data.
 Verify that sensitive data (e.g., session tokens, cached pages) is not stored in plaintext or accessible after the app is closed.)
+Test Case: Validate app security in untrusted environments.
+Steps:
+
+Run the app on:
+A rooted Android device.
+A jailbroken iOS device.
+Verify the app detects and responds appropriately (e.g., refuses to launch or notifies the user).
+Attempt to attach debugging tools to the app and observe its behavior.
+
+Validate Secure Logout Mechanism
+Steps:
+Log in to the app and log out.
+Check if session tokens or sensitive data persist in storage or allow re-access through back navigation.
+
+
+Test Clipboard Security
+Steps:
+Copy sensitive data into app fields.
+Switch to another app and verify that clipboard content does not retain sensitive data.
+
+Verify Permissions
+Steps:
+Review the permissions the app requests at installation or runtime.
+Test functionality by denying unnecessary permissions and ensuring the app handles it gracefully.
+
+Validate Secure Error Handling
+Steps:
+Intentionally cause errors (e.g., network failure or invalid data).
+Verify error messages do not expose stack traces or internal logic.
+
