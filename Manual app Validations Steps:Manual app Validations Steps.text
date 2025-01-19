@@ -1,0 +1,116 @@
+Manual app Validations Steps:
+
+1. Validate Secure Login Mechanism
+Steps:
+
+Upload the APK/AAB/IPA file to Corellium and install it on a virtual device.
+Navigate to the login screen and try:
+Weak passwords (e.g., "123456", "password").
+Invalid email formats (e.g., user@com).
+Incorrect credentials.
+Verify:
+Strong password rules are enforced.
+Passwords are masked when entered.
+Error messages do not reveal sensitive information (e.g., account existence).
+2. Verify No Sensitive Data in Logs
+Steps:
+
+Launch the app on the Corellium virtual device.
+Open the Console Logs in Corellium.
+Perform sensitive actions (e.g., login, registration, or payment).
+Monitor the logs in real time for any sensitive data like passwords, tokens, or API keys.
+3. Validate Session Timeout
+Steps:
+
+Log in to the app and remain idle for the session timeout duration (e.g., 10-15 minutes).
+Attempt to interact with the app after the timeout.
+Verify if the app:
+Logs the user out.
+Requires reauthentication to access sensitive areas.
+4. Check for Hardcoded Sensitive Data
+Steps:
+
+Use Corellium's file system access to explore the app's directory.
+Search for hardcoded sensitive data like API keys, secrets, or credentials in:
+Configuration files.
+Resource files (e.g., res/values/strings.xml for Android).
+Observe error messages during app crashes or failed operations for sensitive information leakage.
+5. Validate Secure Data Storage
+Steps:
+
+Perform sensitive actions (e.g., entering user data or making payments).
+Use Corellium’s file explorer to inspect app data stored in the virtual device’s file system (e.g., /data/data/<app_package_name> for Android or /var/mobile/Containers for iOS).
+Verify:
+Sensitive data is not stored in plaintext.
+Data is encrypted or securely stored (e.g., using iOS Keychain or Android EncryptedSharedPreferences).
+6. Test Input Validation and Error Handling
+Steps:
+
+Open input fields (e.g., login, registration, search).
+Enter invalid data, such as:
+Special characters (<>!@#$%^&*).
+Long strings (e.g., 1,000 characters).
+Verify the app handles invalid inputs without crashing or exposing sensitive error messages.
+7. Validate Secure App Updates
+Steps:
+
+If an older version of the app is available, upload and install it on Corellium.
+Launch the app and check if it enforces updates by prompting the user to update to the latest version.
+Confirm that updates are performed securely through official channels (e.g., App Store, Play Store).
+8. Check for Proper Logout Mechanism
+Steps:
+
+Log in to the app and navigate to sensitive sections.
+Log out and attempt to access those sections using the back button or other navigation.
+Verify that:
+The session is terminated.
+The app redirects you to the login screen.
+9. Validate Clipboard Data Handling
+Steps:
+
+Copy sensitive information like passwords or credit card numbers into app fields.
+Switch to another app on the Corellium virtual device and check the clipboard content.
+Verify that sensitive data is not retained in the clipboard after use.
+10. Test URL Manipulation
+Steps:
+
+Identify URLs used by the app (e.g., via error messages or observing network requests).
+Use Corellium’s network proxy or intercept features to modify URL parameters (e.g., change id=123 to id=456).
+Confirm the app prevents unauthorized access to resources or sensitive data.
+11. Check Network Communication Security
+Steps:
+
+Enable network packet capture in Corellium.
+Perform critical actions like login, data submission, or payment.
+Review the captured network traffic to ensure:
+All traffic uses HTTPS (not HTTP).
+Sensitive data (e.g., passwords) is not transmitted in plaintext.
+12. Validate Error Message Content
+Steps:
+
+Trigger errors by providing invalid inputs or performing invalid actions, such as:
+Logging in with incorrect credentials.
+Uploading invalid files.
+Observe the error messages in the app.
+Verify that the error messages do not expose sensitive details like stack traces or server configurations.
+13. Test for Device Binding
+Steps:
+
+Log in to the app on one Corellium virtual device.
+Attempt to log in with the same credentials on another virtual device.
+Verify whether the app:
+Restricts access on the new device.
+Sends notifications to the original device or requires additional verification (e.g., OTP).
+14. Test App Permissions
+Steps:
+
+Observe the permissions requested during app installation on Corellium.
+Check the permissions granted to the app using Corellium’s permission explorer.
+Verify that all permissions are relevant to the app’s functionality.
+Test the app after denying unnecessary permissions to confirm it functions as expected.
+15. Validate Cache and Browser Data Clearance
+Steps:
+
+Log in to the app, perform actions, and close it without logging out.
+Use Corellium’s file system access to inspect cached data.
+Verify that sensitive data (e.g., session tokens, cached pages) is not stored in plaintext or accessible after the app is closed.)
